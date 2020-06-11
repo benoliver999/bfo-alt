@@ -1,0 +1,33 @@
+---
+# The layout for every post. Just the top part.
+layout: default
+---
+{% comment%}Check for image and credit{% endcomment %}
+{% if page.image.path %}
+<img class="w-full shadow" src="{{ page.image.path }}" alt={{ page.title }}/>
+
+    {% if page.image.credit %}
+        <div class="text-xs text-right w-auto mx-2 italic">
+            <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a>
+        </div>
+    {% endif %}
+{% endif %}
+
+{% comment %}The content wrapper is key{% endcomment %}
+<div class="content">
+
+    {% comment %}Title{% endcomment %}
+<div class="page-title {% if page.category %}bd-{{ page.category }}{% else %}bd-post{% endif %}">{{ page.title }}</div>
+
+    {% comment %}Tagline maybe{% endcomment %}
+    {% if page.tagline %}
+    <div class="page-tagline">
+        {{ page.tagline }}
+    </div>
+    {% endif %}
+
+    {% comment %}Post date{% endcomment%}
+    <div class="font-serif my-2 {% if page.tagline == null %}pt-6{% endif %}">{{ page.date | date: "%B %d %Y - %H:%M %Z" }}</div>
+
+    {{ content }}
+</div>

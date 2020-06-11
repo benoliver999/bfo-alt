@@ -1,0 +1,160 @@
+[context.production]
+  publish = "_site/"
+  command = "bundle exec jekyll build"
+  environment = { NODE_ENV = "production", JEKYLL_ENV = "production"}
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains;"
+    Content-Security-Policy = """
+        default-src 'none';
+        img-src 'self' https://d33wubrfki0l68.cloudfront.net:443;
+        script-src 'self'; style-src 'self' https://d33wubrfki0l68.cloudfront.net:443;
+        media-src 'self' https://d33wubrfki0l68.cloudfront.net:443;
+        report-uri https://bfoliver.report-uri.com/r/d/csp/enforce;
+    """
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block; report=report=https://bfoliver.report-uri.com/r/d/xss/enforce"
+    X-Content-Type-Options = "nosniff"
+    Expect-CT = "max-age=604800; report-uri https://bfoliver.report-uri.com/r/d/ct/enforce;"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Feature-Policy = """
+        accelerometer 'self';
+        ambient-light-sensor 'self';
+        autoplay 'self';
+        camera 'self';
+        document-domain 'self';
+        fullscreen 'self';
+        execution-while-not-rendered 'self';
+        execution-while-out-of-viewport 'self';
+        gyroscope 'self';
+        magnetometer 'self';
+        microphone 'self';
+        midi 'self';
+        payment 'self';
+        picture-in-picture 'self';
+        sync-xhr 'self';
+        usb 'self';
+        wake-lock 'self';
+        xr 'self';
+        encrypted-media 'self';
+        geolocation 'self';
+        speaker 'self';
+    """
+    Vary = "accept-encoding"
+    Report-To = '''{
+        "group":"default",
+        "max_age":31536000,
+        "endpoints":[{"url":"https://bfoliver.report-uri.com/a/d/g"}],
+        "include_subdomains":true
+    }'''
+    NEL = '''{
+        "report_to":"default",
+        "max_age":31536000,
+        "include_subdomains":true
+    }'''
+
+
+[[redirects]]
+  from = "https://bfoliver.netlify.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/film/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/book/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/art/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/game/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/sport/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/food/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/technology/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/announce/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/rip/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bfoliver.com/link/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bfoliver.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bfoliver.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.benoliver999.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.benoliver999.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://benoliver999.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://benoliver999.com/*"
+  to = "https://www.bfoliver.com/:splat"
+  status = 301
+  force = true

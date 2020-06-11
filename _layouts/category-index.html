@@ -1,0 +1,54 @@
+---
+# The 'articles' page
+# Loops through every post
+# I have used this so long I cannot remember how it works...
+layout: default
+---
+
+{% comment %}Set icons{% endcomment %}
+{% case page.category %}
+    {% when "film" %}
+        {% assign titleIcon = site.icons.film %}
+    {% when "book" %}
+        {% assign titleIcon = site.icons.book %}
+    {% when "art" %}
+        {% assign titleIcon = site.icons.art %}
+    {% when "game" %}
+        {% assign titleIcon = site.icons.game %}
+    {% when "sport" %}
+        {% assign titleIcon = site.icons.sport %}
+    {% when "food" %}
+        {% assign titleIcon = site.icons.food %}
+    {% when "technology" %}
+        {% assign titleIcon = site.icons.technology %}
+    {% when null %}
+        {% assign titleIcon = site.icons.post %}
+    {% when "announce" %}
+        {% assign titleIcon = site.icons.announce %}
+    {% when "rip" %}
+        {% assign titleIcon = site.icons.rip %}
+    {% when "link" %}
+        {% assign titleIcon = site.icons.link %}
+{% endcase %}
+
+<div class="content">
+
+<div class="page-title">{{ titleIcon }} {{ page.title|capitalize }}</div>
+
+<div class="page-tagline">{{ page.tagline }}</div>
+
+<div>
+    <ul>
+{% for post in page.posts %}
+
+    {% comment %}Change if linkblog{% endcomment %}
+    {% if post.category == "link" %}
+    <li class="pb-1">{{ post.date | date: "%Y-%m-%d" }} | <a class="page-link" target="_blank" rel="noopener" href="{{ post.linkto }}">{{ post.title }}</a> <a class="page-link" href="{{ post.url }}">(Original post)</a></li>
+    {% else %}
+        <li class="pb-1">{{ post.date | date: "%Y-%m-%d" }} | <a class="page-link" href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endif %}
+
+{% endfor %}
+    </ul>
+</div>
+</div>

@@ -1,0 +1,87 @@
+# Website info
+
+title:            Ben Oliver
+description:      Maybe I'll write, maybe you'll read.
+url: https://www.bfoliver.com
+
+# Icon emoji
+
+icons:
+  film: "📽️"
+  book: "📖"
+  art: "🎨"
+  game: "🕹️"
+  sport: "⚽"
+  food: "🍴"
+  technology: "🤖"
+  post: "🖊️"
+  announce: "📢"
+  rip: "⚰️"
+  link: "🔗"
+
+# Defaults
+
+defaults:
+    -
+        scope:
+            path: ""
+        values:
+            author: "Ben Oliver"
+
+# Owner/author information
+owner:
+  name:           Ben Oliver
+  avatar:         bio-photo.png
+  email:          ben@bfoliver.com
+
+links:
+  - title: Articles
+    url: /articles/
+  - title: Subscribe
+    url: /subscribe/
+  - title: Contact
+    url: /contact/
+  - title: About
+    url: /about/
+  - title: Now
+    url: /now/
+  - title: Linkroll
+    url: /links/
+
+timezone:    UTC
+future:      false
+
+# Build settings
+permalink:        /:year/:month/:day/:title/
+markdown:    kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package-lock.json
+  - package.json
+  - tailwind.config.js
+  - purgecss.config.js
+  - postcss.config.js
+  - netlify.toml
+  - build.sh
+  - _compress_images_cache.yml
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postcss
+  - jekyll-purgecss
+  - jekyll-zopfli
+  - jekyll-brotli
+  - jekyll-compress-images
+  - jekyll-category-pages
+
+compress_images:
+  images_path: "images/**/*.{gif,png,jpg,jpeg,svg}"
+
+category_layout: "category-index.html"
+
+category_path: "articles"
+
+imageoptim:
+  svgo: false

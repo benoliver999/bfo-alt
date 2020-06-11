@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    My head is a spinnin' round,
+    My heart is in my shoes.
+    I went and set the Thames on fire,
+    Now I must come back down.
+
+    She's laughing in her sleeve, boys.
+    I can feel it in my bones.
+
+    Oh but anywhere, anywhere I'm gonna lay my head,
+    I'm gonna call my home.
+
+    I see that the world is upside down.
+    Seems that my pockets were filled up with gold.
+    Now the clouds, well they covered everything over,
+    And the wind is blowing cold.
+
+    Well I don't need anybody, because I learned,
+    I learned to be alone.
+
+    Well I say anywhere, anywhere,
+    Anywhere I lay my head, boys,
+    I'm gonna call my home.
+-->
+    <head>
+        <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="{% if page.tagline %}{{ page.tagline }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+        <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@benoliver999">
+        <meta name="twitter:creator" content="@benoliver999">
+
+        {% if page.title %}
+        <meta name="twitter:title" content="{{ page.title }}">
+        {% else %}
+        <meta name="twitter:title" content="{{ site.title }}">
+        {% endif %}
+
+        {% if page.url %}
+        <meta name="twitter:url" content="{{site.url}}{{ page.url }}">
+        {% endif %}
+
+        {% if page.tagline %}
+        <meta name="twitter:description" content="{{ page.tagline }}">
+        {% else %}
+        <meta name="twitter:description" content="{{ site.description }}">
+        {% endif %}
+
+        {% if page.image.path %}
+        <meta name="twitter:image:src" content="{{ site.url }}{{ page.image.path }}">
+        {% else %}
+        <meta name="twitter:image:src" content="{{ site.url }}/images/bio-photo.png">
+        {% endif %}
+
+        <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+        <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="{% if page.tagline %}{{ page.tagline }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+        <meta property="og:image" content="{{site.url}}{% if page.image.path %}{{ page.image.path }}{% else %}/images/bio-photo.png{% endif %}" />
+
+        {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+        <link rel="canonical" href="{{ canonical }}">
+
+
+        <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/css/main.css">
+
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="/images/mstile-144x144.png">
+        <meta name="theme-color" content="#3d4852">
+        <meta name="msapplication-navbutton-color" content="#3d4852">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#3d4852">
+    </head>
+
+    <body class="flex flex-col min-h-screen bg-gray-100 subpixel-antialiased">
+
+    <header class="w-auto shadow z-50">
+        <a class="no-underline" title="Home" href="/">
+            <h1 class="text-center text-5xl font-bold bg-gray-800 text-gray-300 leading-tight">
+                Ben Oliver
+            </h1>
+        </a>
+
+        <div class="bg-gray-100 flex sm:justify-center overflow-x-auto">
+            {% for link in site.links %}
+            <div class="py-3 mx-2 text-center leading-tight">
+                <a href="{{ link.url }}" class="uppercase no-underline hover:underline text-sm text-gray-800 nav-link">{{ link.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </header>
+
+    <div class="flex-1">
+
+        {{ content }}
+
+    </div>
+
+    <footer class="bottom-0 w-auto bg-gray-800 text-gray-300 p-2 text-xs text-center items-center footer">
+        <span>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }} | </span>
+        <span> <span>bfoliver.com</span> by <a href="http://bfoliver.com" class="text-gray-100">Ben Oliver</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" class="text-gray-100">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</span>
+    </footer>
+
+    </body>
+</html>

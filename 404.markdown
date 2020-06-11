@@ -1,0 +1,19 @@
+---
+layout: page
+permalink: /404.html
+title: "Error 404"
+---
+
+404 means we couldn't find the page you were looking for. Sorry about that.
+
+Try removing the category from the URL in your web browser. For example,
+
+`https://www.bfoliver.com/film/2020/01/10/us/`
+
+would become
+
+`https://www.bfoliver.com/2020/01/10/us/`
+
+with the `/film` part removed.
+
+If you are convinced it should exist or think perhaps it used to exist, then [contact Ben](/about/).
